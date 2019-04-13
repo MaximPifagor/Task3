@@ -1,13 +1,16 @@
 public class SleepWorker extends Threaded {
-
-    SleepWorker(String n) {
-        super(n);
+    static int i = 0;
+    int TimeToLive;
+    SleepWorker(int timeToLive) {
+        super("SLEEP"+i);
+        i++;
+        TimeToLive = timeToLive;
     }
 
     @Override
-    public void run() {
+    public void subRun() {
         try {
-            Thread.sleep(1000);
+            Thread.sleep(TimeToLive);
         }catch (Exception e){
             e.printStackTrace();
         }

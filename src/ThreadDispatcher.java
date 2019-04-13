@@ -2,12 +2,11 @@ import java.util.HashMap;
 
 public class ThreadDispatcher {
     private static volatile ThreadDispatcher threadDispatcher;
-    private static volatile HashMap<Threaded,Thread> list = new HashMap<>();
     public volatile ThreadMonitor monitor;
 
     public void add(Threaded task){
+        task.addObserver(monitor);
         Thread thread = new Thread(task);
-        list.put(task,thread);
         thread.start();
     }
 
