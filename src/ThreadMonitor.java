@@ -7,7 +7,8 @@ public class ThreadMonitor extends Threaded implements Observer {
     private List<String> list = new ArrayList<String>();
 
     @Override
-    public void subRun() {}
+    public void subRun() {
+    }
 
     ThreadMonitor(String n) {
         super(n);

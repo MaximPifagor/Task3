@@ -11,11 +11,11 @@ public abstract class Threaded extends Observable implements Runnable {
 
     public void run() {
         setChanged();
-        notifyObservers(THREAD_WAS_OPENED + " " + name);
+        notifyObservers(THREAD_WAS_OPENED);
         clearChanged();
         subRun();
         setChanged();
-        notifyObservers(THREAD_WAS_CLOSED + " " + name);
+        notifyObservers(THREAD_WAS_CLOSED);
         clearChanged();
     }
 
