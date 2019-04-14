@@ -5,11 +5,18 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class ThreadMonitor extends Threaded implements Observer {
-    private List<String> list = new ArrayList<String>();
+    private volatile List<String> list = new ArrayList<String>();
     public final static String file = "MonitorFile.txt";
 
     @Override
     public void subRun() {
+        try {
+            Thread.sleep(1000);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        while (list.size()>1){
+        }
     }
 
     ThreadMonitor(String n) {
@@ -19,62 +26,45 @@ public class ThreadMonitor extends Threaded implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         String s = (String) arg;
-        String[] sArr = s.split(" ");
+        String name = ((Threaded) o).name;
         synchronized (ThreadMonitor.class) {
-            if (s.startsWith(Threaded.THREAD_WAS_OPENED)) {
-                list.add(((Threaded) o).name);
-            } else if (s.startsWith(THREAD_WAS_CLOSED)) {
-                list.remove(((Threaded) o).name);
+            if (s.equals(Threaded.THREAD_WAS_OPENED)) {
+                list.add(name);
+            } else if (s.equals(THREAD_WAS_CLOSED)) {
+                list.remove(name);
             }
-            writeTo();
+            writeToFile();
+            writeToConsole();
         }
     }
 
-    public void writeTo() {
-        for (String s : list) {
-            if (s != null)
-                System.out.println(s);
-        }
-        System.out.println();
-    }
-
-    private int searchLineInFile(InputStream inputStream, String str) {
-        InputStreamReader reader;
-        BufferedReader bufferedReader;
-        int number = -1;
+    private void writeToFile() {
+        OutputStreamWriter writer;
+        BufferedWriter bufferedWriter;
         try {
-            reader = new InputStreamReader(inputStream);
-            bufferedReader = new BufferedReader(reader);
+            writer = new OutputStreamWriter(new FileOutputStream(file));
+            bufferedWriter = new BufferedWriter(writer);
             try {
-                int i = 0;
-                String s;
-                while ((s = bufferedReader.readLine()) != null) {
-                    if (str.equals(s))
-                        number = i;
-                    i++;
+                for (String s:list) {
+                    if(s!=null) {
+                        bufferedWriter.write(s);
+                        bufferedWriter.newLine();
+                    }
                 }
             } finally {
-                reader.close();
-                bufferedReader.close();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return number == -1 ? null : number;
-    }
-
-    private void writeToFile(OutputStream outputStream, int number) {
-        OutputStreamWriter writer;
-        try {
-            writer = new OutputStreamWriter(outputStream);
-            try {
-
-            } finally {
+                bufferedWriter.close();
                 writer.close();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
+    private void writeToConsole(){
+        for (String s:list) {
+            if(s!=null) {
+                System.out.println(s);
+            }
+        }
+        System.out.println();
+    }
 }
