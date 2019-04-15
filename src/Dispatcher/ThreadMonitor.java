@@ -1,3 +1,5 @@
+package Dispatcher;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +21,7 @@ public class ThreadMonitor extends Threaded implements Observer {
         }
     }
 
-    ThreadMonitor(String n) {
+    public ThreadMonitor(String n) {
         super(n);
     }
 

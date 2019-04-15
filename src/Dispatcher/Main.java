@@ -1,3 +1,5 @@
+package Dispatcher;
+
 public class Main {
     public static void main(String[] args) {
         ThreadDispatcher dispatcher = ThreadDispatcher.getInstance(new ThreadMonitor("MONITOR"));
