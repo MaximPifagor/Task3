@@ -1,5 +1,7 @@
 package webSocket;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
@@ -18,5 +20,17 @@ public class MyServer extends Threaded {
     }
 
     public void subRun() {
+        try{
+            BufferedReader reader;
+
+            try{
+
+            }finally {
+
+            }
+        }catch (Exception e){
+
+        }
+
     }
 }

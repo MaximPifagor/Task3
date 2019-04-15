@@ -9,6 +9,7 @@ import java.util.Observer;
 public class ThreadMonitor extends Threaded implements Observer {
     private volatile List<String> list = new ArrayList<String>();
     public final static String file = "MonitorFile.txt";
+    public volatile List<String> openList;
 
     @Override
     public void subRun() {
@@ -18,8 +19,18 @@ public class ThreadMonitor extends Threaded implements Observer {
             e.printStackTrace();
         }
         while (list.size()>1){
+          try {
+              Thread.sleep(10);
+          }catch (Exception e){}
+          synchronized (ThreadMonitor.class){
+              openList = new ArrayList<>();
+              for (int i = 0; i <list.size() ; i++) {
+                  openList.add(list.get(i));
+              }
+          }
         }
     }
+
 
     public ThreadMonitor(String n) {
         super(n);
@@ -35,8 +46,8 @@ public class ThreadMonitor extends Threaded implements Observer {
             } else if (s.equals(THREAD_WAS_CLOSED)) {
                 list.remove(name);
             }
-            writeToFile();
-            writeToConsole();
+            //writeToFile();
+            //writeToConsole();
         }
     }
 
