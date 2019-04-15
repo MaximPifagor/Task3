@@ -24,7 +24,6 @@ public class MyServer extends Threaded {
             BufferedReader reader;
 
             try{
-
             }finally {
 
             }

@@ -17,7 +17,14 @@ public class Main {
             dispatcher.add(sleepWorkers[i]);
         }
         while (true){
+            try {
+                Thread.sleep(10);
+            }catch (Exception e){
+
+            }
             ThreadMonitor monitor = dispatcher.monitor;
+            List<String> list  = monitor.openList;
+            if(list!=null)
             writeToFile(monitor.openList);
         }
     }
@@ -25,6 +32,8 @@ public class Main {
     public static void writeToFile(List<String> list) {
         OutputStreamWriter writer;
         BufferedWriter bufferedWriter;
+        if(list == null)
+            return;
         try {
             writer = new OutputStreamWriter(new FileOutputStream(file));
             bufferedWriter = new BufferedWriter(writer);
