@@ -1,8 +1,6 @@
 package webSocket;
 import Dispatcher.*;
 
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -14,9 +12,7 @@ public class Main {
             ThreadDispatcher dispatcher = ThreadDispatcher.getInstance(new ThreadMonitor("MONITOR"));
             while (true) {
                 Socket socketClient = serverSocket.accept();
-                InputStream inputStream = socketClient.getInputStream();
-                OutputStream outputStream = socketClient.getOutputStream();
-                MyServer myServer = new MyServer("myServer"+i++, outputStream, inputStream);
+                MyServer myServer = new MyServer("myServer"+i++, socketClient);
                 dispatcher.add(myServer);
             }
         } catch (Exception e) {
