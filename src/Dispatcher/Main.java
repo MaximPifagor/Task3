@@ -9,7 +9,8 @@ public class Main {
     public final static String file = "MonitorFile.txt";
     public static void main(String[] args) {
         ThreadDispatcher dispatcher = ThreadDispatcher.getInstance(new ThreadMonitor("MONITOR"));
-        SleepWorker[] sleepWorkers = new SleepWorker[8];
+        SleepWorker[] sleepWorkers = new SleepWorker[15];
+        ThreadMonitor monitor = dispatcher.monitor;
         for (int i=0;i<sleepWorkers.length;i++) {
             sleepWorkers[i] = new SleepWorker(1000* (i+1));
         }
@@ -22,9 +23,7 @@ public class Main {
             }catch (Exception e){
 
             }
-            ThreadMonitor monitor = dispatcher.monitor;
             List<String> list  = monitor.openList;
-            if(list!=null)
             writeToFile(monitor.openList);
         }
     }

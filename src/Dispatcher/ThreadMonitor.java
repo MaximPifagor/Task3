@@ -9,25 +9,31 @@ import java.util.Observer;
 public class ThreadMonitor extends Threaded implements Observer {
     private volatile List<String> list = new ArrayList<String>();
     public final static String file = "MonitorFile.txt";
-    public volatile List<String> openList;
+    public volatile List<String> openList = new ArrayList<>();
+    private volatile boolean IsInterrupted = false;
 
     @Override
     public void subRun() {
-        try {
-            Thread.sleep(1000);
-        }catch (Exception e){
-            e.printStackTrace();
+        while (true) {
+            try {
+                Thread.sleep(10);
+            } catch (Exception e) {
+            }
+            synchronized (ThreadMonitor.class) {
+                if(IsInterrupted)
+                    return;
+                List<String> threads = new ArrayList<>();
+                for (int i = 0; i < list.size(); i++) {
+                    threads.add(list.get(i));
+                }
+                openList = threads;
+            }
         }
-        while (list.size()>1){
-          try {
-              Thread.sleep(10);
-          }catch (Exception e){}
-          synchronized (ThreadMonitor.class){
-              openList = new ArrayList<>();
-              for (int i = 0; i <list.size() ; i++) {
-                  openList.add(list.get(i));
-              }
-          }
+    }
+
+    public void interrupt() {
+        synchronized (ThreadMonitor.class) {
+            IsInterrupted = true;
         }
     }
 
@@ -58,8 +64,8 @@ public class ThreadMonitor extends Threaded implements Observer {
             writer = new OutputStreamWriter(new FileOutputStream(file));
             bufferedWriter = new BufferedWriter(writer);
             try {
-                for (String s:list) {
-                    if(s!=null) {
+                for (String s : list) {
+                    if (s != null) {
                         bufferedWriter.write(s);
                         bufferedWriter.newLine();
                     }
@@ -72,9 +78,10 @@ public class ThreadMonitor extends Threaded implements Observer {
             e.printStackTrace();
         }
     }
-    private void writeToConsole(){
-        for (String s:list) {
-            if(s!=null) {
+
+    private void writeToConsole() {
+        for (String s : list) {
+            if (s != null) {
                 System.out.println(s);
             }
         }
