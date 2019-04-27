@@ -25,6 +25,7 @@ public class MyServer extends Threaded {
                 while ((s = reader.readLine()).length() != 0){
                     str +=s;
                 }
+
             }finally {
 
             }
