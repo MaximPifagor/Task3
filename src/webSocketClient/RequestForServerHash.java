@@ -12,6 +12,7 @@ public class RequestForServerHash extends Threaded {
     private String command;
     static int count = 0;
     public Socket socket;
+    public volatile static String fileOutput = "ClientLog";
 
     public RequestForServerHash(String command) {
         super("req" + count);
@@ -24,6 +25,7 @@ public class RequestForServerHash extends Threaded {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     @Override
@@ -33,8 +35,10 @@ public class RequestForServerHash extends Threaded {
                 // чтения строк из сокета
                 // в try-with-resources стиле
                 DataOutputStream oos = new DataOutputStream(socket.getOutputStream());
-                DataInputStream ois = new DataInputStream(socket.getInputStream())) {
-            System.out.println("Client oos & ois initialized");
+                DataInputStream ois = new DataInputStream(socket.getInputStream());
+                BufferedWriter log = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileOutput,true)));
+        ) {
+            log.write("Client oos & ois initialized"+'\n');
 
             // пишем сообщение автогенерируемое циклом клиента в канал
             // сокета для сервера
@@ -46,14 +50,15 @@ public class RequestForServerHash extends Threaded {
             // ждём чтобы сервер успел прочесть сообщение из сокета и
             // ответить
             Thread.sleep(10);
-            System.out.println("Client wrote & start waiting for data from server...");
+            log.write("Client wrote & start waiting for data from server..."+'\n');
 
             // забираем ответ из канала сервера в сокете
             // клиента и сохраняем её в ois переменную, печатаем на
             // консоль
-            System.out.println("reading...");
+            log.write("reading..."+'\n');
             String in = ois.readUTF();
-            System.out.println(in);
+            resp = in;
+            //WriteToFile(in);
             socket.close();
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -61,6 +66,15 @@ public class RequestForServerHash extends Threaded {
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+        }
+    }
+
+    private void WriteToFile(String in) throws IOException{
+        BufferedWriter br = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fileOutput,true)));
+        synchronized (RequestForServerHash.class) {
+            br.write(in);
+            br.newLine();
+            br.newLine();
         }
     }
 

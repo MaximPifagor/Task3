@@ -4,25 +4,28 @@ import Dispatcher.*;
 import FileWorkerPackage.FileWorker;
 import FileWorkerPackage.Md5ExecutorFile;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Main {
     static int i = 0;
     static volatile FileWorker fileWorkerS;
+    static String Log = "ServerLog";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(Log)));
+        writer.write("");
         FileWorker fileWorker = new FileWorker("C:\\Users\\макс\\Desktop\\test");
         fileWorker.setIsRecursive(true);
         fileWorker.execute(new Md5ExecutorFile());
         fileWorkerS = fileWorker;
         // стартуем сервер на порту 3345 и инициализируем переменную для обработки консольных команд с самого сервера
         try (ServerSocket server = new ServerSocket(3345);
-             BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-            System.out.println("Server socket created, command console reader for listen to server commands");
+             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+             BufferedWriter log = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(Log,true)));
+        ) {
+            log.write("Server socket created, command console reader for listen to server commands"+'\n');
 
             // стартуем цикл при условии что серверный сокет не закрыт
             while (!server.isClosed()) {
@@ -30,13 +33,13 @@ public class Main {
                 // проверяем поступившие комманды из консоли сервера если такие
                 // были
                 if (br.ready()) {
-                    System.out.println("Main Server found any messages in channel, let's look at them.");
+                    log.write("Main Server found any messages in channel, let's look at them."+'\n');
 
                     // если команда - quit то инициализируем закрытие сервера и
                     // выход из цикла раздачии нитей монопоточных серверов
                     String serverCommand = br.readLine();
                     if (serverCommand.equalsIgnoreCase("quit")) {
-                        System.out.println("Main Server initiate exiting...");
+                        log.write("Main Server initiate exiting..." + '\n');
                         server.close();
                         break;
                     }
@@ -54,7 +57,7 @@ public class Main {
                 // продолжает общение от лица сервера
                 ThreadDispatcher dispatcher = ThreadDispatcher.getInstance(new ThreadMonitor("MONITOR"));
                 dispatcher.add(new MyServer(client));
-                System.out.print("Connection accepted.");
+                log.write("Connection accepted.");
             }
 
         } catch (IOException e) {

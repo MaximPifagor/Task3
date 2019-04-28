@@ -13,6 +13,10 @@ public class ThreadDispatcher {
         thread.start();
     }
 
+    public void Interrupt(){
+        monitor.interrupt();
+    }
+
     public void addAll(Collection<? extends Threaded> collection){
         Iterator<? extends  Threaded> iterator = collection.iterator();
         while (iterator.hasNext()){
