@@ -1,5 +1,8 @@
 package Dispatcher;
 
+import java.util.Collection;
+import java.util.Iterator;
+
 public class ThreadDispatcher {
     private static volatile ThreadDispatcher threadDispatcher;
     public volatile ThreadMonitor monitor;
@@ -8,6 +11,13 @@ public class ThreadDispatcher {
         task.addObserver(monitor);
         Thread thread = new Thread(task);
         thread.start();
+    }
+
+    public void addAll(Collection<? extends Threaded> collection){
+        Iterator<? extends  Threaded> iterator = collection.iterator();
+        while (iterator.hasNext()){
+            add(iterator.next());
+        }
     }
 
     public static ThreadDispatcher getInstance(ThreadMonitor monitor1){

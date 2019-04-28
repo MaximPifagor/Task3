@@ -16,7 +16,7 @@ public class FileWorker {
     private boolean isRecursive;
     private HashMap<String, String> PathToHashTable;
 
-    FileWorker(String path) {
+    public FileWorker(String path) {
         RootDirectory = new File(path);
         RoorDirectoryPath = Paths.get(RootDirectory.toURI());
         isRecursive = false;

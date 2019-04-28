@@ -14,7 +14,7 @@ public class ThreadMonitor extends Threaded implements Observer {
 
     @Override
     public void subRun() {
-        while (true) {
+        while (true && !IsInterrupted) {
             try {
                 Thread.sleep(10);
             } catch (Exception e) {
