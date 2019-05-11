@@ -10,60 +10,6 @@ Closing connections & channels - DONE.
 DataInputStream created
 DataOutputStream  created
 Server reading from channel
-READ from clientDialog message - hash img.bmp
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - list
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - hash img.bmp
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - hash img.bmp
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - hash img.bmp
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - list
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
 READ from clientDialog message - list
 Server try writing to channel
 Server Wrote message to clientDialog.
@@ -100,7 +46,7 @@ Closing connections & channels - DONE.
 DataInputStream created
 DataOutputStream  created
 Server reading from channel
-READ from clientDialog message - hash img.bmp
+READ from clientDialog message - list
 Server try writing to channel
 Server Wrote message to clientDialog.
 Client disconnected
@@ -109,16 +55,7 @@ Closing connections & channels - DONE.
 DataInputStream created
 DataOutputStream  created
 Server reading from channel
-READ from clientDialog message - hash img.bmp
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - hash img.bmp
+READ from clientDialog message - list
 Server try writing to channel
 Server Wrote message to clientDialog.
 Client disconnected
@@ -137,6 +74,24 @@ DataInputStream created
 DataOutputStream  created
 Server reading from channel
 READ from clientDialog message - list
+Server try writing to channel
+Server Wrote message to clientDialog.
+Client disconnected
+Closing connections & channels.
+Closing connections & channels - DONE.
+DataInputStream created
+DataOutputStream  created
+Server reading from channel
+READ from clientDialog message - list
+Server try writing to channel
+Server Wrote message to clientDialog.
+Client disconnected
+Closing connections & channels.
+Closing connections & channels - DONE.
+DataInputStream created
+DataOutputStream  created
+Server reading from channel
+READ from clientDialog message - hash img.bmp
 Server try writing to channel
 Server Wrote message to clientDialog.
 Client disconnected
@@ -191,195 +146,6 @@ DataInputStream created
 DataOutputStream  created
 Server reading from channel
 READ from clientDialog message - hash img.bmp
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - hash img.bmp
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - hash img.bmp
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - hash img.bmp
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - list
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - list
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - list
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - list
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - list
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - hash img.bmp
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - hash img.bmp
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - hash img.bmp
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - hash img.bmp
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - hash img.bmp
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - list
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - list
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - list
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - list
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - list
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - hash img.bmp
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - hash img.bmp
-Server try writing to channel
-Server Wrote message to clientDialog.
-Client disconnected
-Closing connections & channels.
-Closing connections & channels - DONE.
-DataInputStream created
-DataOutputStream  created
-Server reading from channel
-READ from clientDialog message - list
 Server try writing to channel
 Server Wrote message to clientDialog.
 Client disconnected

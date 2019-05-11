@@ -1,13 +1,10 @@
 package webSocket;
 
 import java.io.*;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Map;
 
 import Dispatcher.*;
-import FileWorkerPackage.FileWorker;
-import FileWorkerPackage.Md5ExecutorFile;
 
 public class MyServer extends Threaded {
     private Socket clientDialog;
@@ -21,7 +18,7 @@ public class MyServer extends Threaded {
 
     public void subRun() {
         try(
-                BufferedWriter log = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(Main.Log,true)));
+                BufferedWriter log = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(MainServer.Log,true)));
         ) {
             // инициируем каналы общения в сокете, для сервера
 
@@ -52,15 +49,15 @@ public class MyServer extends Threaded {
 
                 // инициализация проверки условия продолжения работы с клиентом
                 // по этому сокету по кодовому слову - quit в любом регистре
-                if (entry.equalsIgnoreCase("quit")) {
-
-                    // если кодовое слово получено то инициализируется закрытие
-                    // серверной нити
-                    log.write("Client initialize connections suicide ..."+'\n');
-
-                    out.writeUTF("Server reply - " + entry + " - OK");
-                    Thread.sleep(3000);
-                }
+//                if (entry.equalsIgnoreCase("quit")) {
+//
+//                    // если кодовое слово получено то инициализируется закрытие
+//                    // серверной нити
+//                    log.write("Client initialize connections suicide ..."+'\n');
+//
+//                    out.writeUTF("Server reply - " + entry + " - OK");
+//                    Thread.sleep(3000);
+//                }
 
 
                 // если условие окончания работы не верно - продолжаем работу -
@@ -95,10 +92,11 @@ public class MyServer extends Threaded {
             log.write("Closing connections & channels - DONE."+'\n');
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
+//        catch (InterruptedException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
 
     }
 
@@ -106,9 +104,9 @@ public class MyServer extends Threaded {
         String result = "";
         String[] s = command.split(" ");
         if (s[0].equals("hash")) {
-            result = s[1] + " "+ Main.fileWorkerS.getPathToHashTable().get(s[1]);
+            result = s[1] + " "+ MainServer.fileWorkerS.getPathToHashTable().get(s[1]);
         } else if (s[0].equals("list")) {
-            for (Map.Entry<String, String> entry : Main.fileWorkerS.getPathToHashTable().entrySet()) {
+            for (Map.Entry<String, String> entry : MainServer.fileWorkerS.getPathToHashTable().entrySet()) {
                 String respond = entry.getKey() + '\n';
                 result += respond;
             }

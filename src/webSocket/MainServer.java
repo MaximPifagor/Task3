@@ -8,7 +8,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Main {
+public class MainServer {
     static int i = 0;
     static volatile FileWorker fileWorkerS;
     static String Log = "ServerLog";
@@ -33,13 +33,13 @@ public class Main {
                 // проверяем поступившие комманды из консоли сервера если такие
                 // были
                 if (br.ready()) {
-                    log.write("Main Server found any messages in channel, let's look at them."+'\n');
+                    log.write("MainServer Server found any messages in channel, let's look at them."+'\n');
 
                     // если команда - quit то инициализируем закрытие сервера и
                     // выход из цикла раздачии нитей монопоточных серверов
                     String serverCommand = br.readLine();
                     if (serverCommand.equalsIgnoreCase("quit")) {
-                        log.write("Main Server initiate exiting..." + '\n');
+                        log.write("MainServer Server initiate exiting..." + '\n');
                         server.close();
                         break;
                     }
