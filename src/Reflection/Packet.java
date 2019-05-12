@@ -7,15 +7,13 @@ public class Packet {
     public char ch;
     public byte aByte;
     public Packet2 packet2;
-    //public FileWorker fileWorker;
 
-    public Packet(int number, String name) {
+    public Packet(int number, String name, char ch, byte aByte, Packet2 packet2) {
         this.number = number;
         this.name = name;
-        //fileWorker  = new FileWorker("C:\\Users\\макс\\Desktop\\test");
-        ch = 'h';
-        aByte = 5;
-        packet2 = new Packet2(3,"ooo");
+        this.ch = ch;
+        this.aByte = aByte;
+        this.packet2 = packet2;
     }
 
     public Packet(){

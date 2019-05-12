@@ -5,16 +5,14 @@ public class Packet2 {
     public String name;
     public char ch;
     public byte aByte;
-    //public FileWorker fileWorker;
 
-    public Packet2(int number, String name) {
+    public Packet2(){
+    }
+
+    public Packet2(int number, String name, char ch, byte aByte) {
         this.number = number;
         this.name = name;
-        //fileWorker  = new FileWorker("C:\\Users\\макс\\Desktop\\test");
-        ch = 'h';
-        aByte = 5;
-    }
-    public Packet2(){
-
+        this.ch = ch;
+        this.aByte = aByte;
     }
 }
