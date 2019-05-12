@@ -1,32 +1,33 @@
 package Reflection;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.StringReader;
+import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.Properties;
 
 public class Serializator {
-    public static  <T> byte[] serialize(T obj) {
+    public static <T> byte[] serialize(T obj) {
         if (obj == null)
             return null;
         Properties p = ClassToPropertiesConverter.classToProperties(obj);
-        String result = "abc";
-        for (String key : p.stringPropertyNames())
-        {
-            result = result + "\n" + key  + "=" + p.getProperty(key);
+        StringWriter writer = new StringWriter();
+        try {
+            p.store(writer, "");
+        } catch (IOException ioE) {
+            ioE.printStackTrace();
         }
-        return  result.getBytes();
+        return writer.toString().getBytes();
     }
 
-    public static  <T> T deSerialize(byte[] raw) {
-        String str = new String(raw);
-        String[] propStr = str.split("\n");
-        if(!propStr[0].equals("abc"))
-            return null;
+    public static <T> T deSerialize(byte[] raw) {
         Properties properties = new Properties();
-        for (int i = 1; i <propStr.length ; i++) {
-            String[] el = propStr[i].split("=");
-            if(el.length == 2)
-            properties.setProperty(el[0],el[1]);
+        try {
+            properties.load(new StringReader(new String(raw)));
+        } catch (IOException ioE) {
+            ioE.printStackTrace();
         }
-        return (T)ClassToPropertiesConverter.classFromProperties(properties);
+        return (T) ClassToPropertiesConverter.classFromProperties(properties);
     }
 }
