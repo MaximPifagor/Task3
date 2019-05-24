@@ -6,7 +6,6 @@ import java.util.Map;
 
 import Dispatcher.*;
 import FileWorkerPackage.FileWorker;
-import webSocket.OldVersionServer.MainServer;
 
 public class MyServer extends Threaded {
     private Socket clientDialog;
@@ -22,7 +21,7 @@ public class MyServer extends Threaded {
 
     public void subRun() {
         try (
-                BufferedWriter log = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(MainServer.Log, true)));
+                BufferedWriter log = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("F", true)));
         ) {
             DataOutputStream out = new DataOutputStream(clientDialog.getOutputStream());
             DataInputStream in = new DataInputStream(clientDialog.getInputStream());
