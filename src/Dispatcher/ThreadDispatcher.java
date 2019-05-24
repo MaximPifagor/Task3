@@ -5,7 +5,11 @@ import java.util.Iterator;
 
 public class ThreadDispatcher {
     private static volatile ThreadDispatcher threadDispatcher;
-    public volatile ThreadMonitor monitor;
+    private volatile ThreadMonitor monitor;
+
+    public ThreadMonitor getMonitor() {
+        return monitor;
+    }
 
     public void add(Threaded task){
         task.addObserver(monitor);

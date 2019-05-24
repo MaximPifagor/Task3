@@ -45,46 +45,16 @@ public class ThreadMonitor extends Threaded implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         String s = (String) arg;
-        String name = ((Threaded) o).name;
+        String nameObj = ((Threaded) o).toString();
+        String name = ((Threaded)o).name;
+        if(name!= null)
+            nameObj += ":" + name;
         synchronized (ThreadMonitor.class) {
             if (s.equals(Threaded.THREAD_WAS_OPENED)) {
-                list.add(name);
+                list.add(nameObj);
             } else if (s.equals(THREAD_WAS_CLOSED)) {
-                list.remove(name);
-            }
-            //writeToFile();
-            //writeToConsole();
-        }
-    }
-
-    private void writeToFile() {
-        OutputStreamWriter writer;
-        BufferedWriter bufferedWriter;
-        try {
-            writer = new OutputStreamWriter(new FileOutputStream(file));
-            bufferedWriter = new BufferedWriter(writer);
-            try {
-                for (String s : list) {
-                    if (s != null) {
-                        bufferedWriter.write(s);
-                        bufferedWriter.newLine();
-                    }
-                }
-            } finally {
-                bufferedWriter.close();
-                writer.close();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void writeToConsole() {
-        for (String s : list) {
-            if (s != null) {
-                System.out.println(s);
+                list.remove(nameObj);
             }
         }
-        System.out.println();
     }
 }

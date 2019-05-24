@@ -11,6 +11,8 @@ public abstract class Threaded extends Observable implements Runnable {
         name = n;
     }
 
+    public Threaded(){}
+
 
     public void run() {
         setChanged();

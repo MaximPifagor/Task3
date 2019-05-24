@@ -3,8 +3,9 @@ package Dispatcher;
 public class SleepWorker extends Threaded {
     static int i = 0;
     int TimeToLive;
+
     SleepWorker(int timeToLive) {
-        super("SLEEP"+i);
+        super("SLEEP" + i);
         i++;
         TimeToLive = timeToLive;
     }
@@ -13,7 +14,7 @@ public class SleepWorker extends Threaded {
     public void subRun() {
         try {
             Thread.sleep(TimeToLive);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

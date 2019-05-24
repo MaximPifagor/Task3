@@ -11,7 +11,7 @@ public class Client {
     public static void main(String[] args) throws Exception {
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(RequestForServerHash.fileOutput)));
         writer.write("");
-        ThreadDispatcher dispatcher = ThreadDispatcher.getInstance(new ThreadMonitor("MONITOR"));
+        ThreadDispatcher dispatcher = ThreadDispatcher.getInstance(new ThreadMonitor("Client"));
         List<RequestForServerHash> list = new ArrayList<RequestForServerHash>();
         for (int i = 0; i <2 ; i++) {
             list.add(new RequestForServerHash("hash img.bmp"));
