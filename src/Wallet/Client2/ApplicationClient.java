@@ -25,6 +25,6 @@ public class ApplicationClient implements Runnable {
     }
 
     public void sendCommand() {
-        
+
     }
 }
