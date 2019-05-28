@@ -20,21 +20,21 @@ public class MainReflection {
         System.out.println(s.name + " " + s.packet2.name);
     }
 
-    public static byte[] getBytesArray(List<Byte> list){
+    public static byte[] getBytesArray(List<Byte> list) {
         byte[] bytes = new byte[list.size()];
         Iterator<Byte> itr = list.iterator();
         int i = 0;
-        while (itr.hasNext()){
+        while (itr.hasNext()) {
             bytes[i++] = itr.next();
         }
         return bytes;
     }
 
-    public static void toFile(byte[] bytes){
+    public static void toFile(byte[] bytes) {
         FileOutputStream outStream = null;
         try {
             try {
-                outStream = new FileOutputStream("serialize.txt");
+                outStream = new FileOutputStream("src\\Reflection\\serialize.txt");
                 for (int i = 0; i < bytes.length; i++) {
                     outStream.write(bytes[i]);
                 }
@@ -46,15 +46,16 @@ public class MainReflection {
             e.printStackTrace();
         }
     }
-    public static byte[] fromFile(){
+
+    public static byte[] fromFile() {
         FileInputStream inStream = null;
         List<Byte> bytesList = new ArrayList<>();
         try {
             try {
-                inStream = new FileInputStream("serialize.txt");
+                inStream = new FileInputStream("src\\Reflation\\serialize.txt");
                 int a;
-                while ((a = inStream.read())!= -1){
-                    bytesList.add((byte)a);
+                while ((a = inStream.read()) != -1) {
+                    bytesList.add((byte) a);
                 }
             } finally {
                 if (inStream != null)

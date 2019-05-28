@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Main {
-    public final static String file = "MonitorFile.txt";
+    public final static String file = "src\\Dispatcher\\MonitorFile.txt";
 
     public static void main(String[] args) {
         ThreadDispatcher dispatcher = ThreadDispatcher.getInstance(new ThreadMonitor("Monitor"));

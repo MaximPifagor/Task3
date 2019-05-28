@@ -45,7 +45,7 @@ public class WalletServer extends ServerBase {
         if (currentState == States.Using && command.equals("info")) {
             return "info:" + currentPerson.login + ":" + currentPerson.account;
         }
-        return "unsec:" + command;
+        return "unsuc:" + command;
     }
 
     boolean isExistLogin(String login) {
@@ -74,7 +74,7 @@ public class WalletServer extends ServerBase {
     private String sendVV(String command) {
         String[] str = command.split(":");
         if (!isExistLogin(str[1]))
-            return "unsec:send";
+            return "unsuc:send";
         Person rcpt = persons.get(str[1]);
         Person source = currentPerson;
         Person person1;
@@ -90,20 +90,16 @@ public class WalletServer extends ServerBase {
             synchronized (person1) {
                 synchronized (person2) {
                     int count = Integer.parseInt(str[2]);
-                    if (count <= currentPerson.account) {
+                    if (count <= currentPerson.account && count >= 0) {
                         currentPerson.account = currentPerson.account - count;
                         Person p = persons.get(rcpt.login);
                         p.account = p.account + count;
-                        if (activePersons.containsKey(source.login))
-                            updataUsersInfo(source);
-                        if (activePersons.containsKey(rcpt.login))
-                            updataUsersInfo(rcpt);
-                        return "sec:send";
+                        return "suc:send";
                     }
                 }
             }
         }
-        return "unsec:send";
+        return "unsuc:send";
     }
 
     private void updataUsersInfo(Person person) {
@@ -144,7 +140,7 @@ public class WalletServer extends ServerBase {
             currentState = States.Using;
             return "suc:auth";
         }
-        return "unsec:auth";
+        return "unsuc:auth";
     }
 
     //quit
@@ -153,7 +149,7 @@ public class WalletServer extends ServerBase {
             currentState = States.Start;
             activePersons.remove(currentPerson.login);
             currentPerson = null;
-            return "sec:quit";
+            return "suc:quit";
         }
     }
 

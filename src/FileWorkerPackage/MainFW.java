@@ -11,7 +11,7 @@ public class MainFW {
         fileWorker.setIsRecursive(true);
         fileWorker.execute(new Md5ExecutorFile());
         HashMap<String, String> map = fileWorker.getPathToHashTable();
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("output.txt"));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("src\\FileWorkerPackage\\output.txt"));
         System.out.println();
         for (Map.Entry<String,String> entry : map.entrySet()) {
             bufferedWriter.write(entry.getKey()+ ": "+ entry.getValue()+".");

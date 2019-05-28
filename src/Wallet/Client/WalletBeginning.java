@@ -10,7 +10,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
 
-public class WalletBeginning extends JFrame implements Runnable {
+public class WalletBeginning extends JFrame {
     JPanel jPanel;
     JPanel jPanelSignUp;
     JPanel jPanelSignIn;
@@ -29,32 +29,32 @@ public class WalletBeginning extends JFrame implements Runnable {
     Boolean listenServer = true;
     static int i = 0;
 
-    @Override
-    public void run() {
-        while (listenServer) {
-            try {
-                Thread.currentThread().sleep(100);
-            } catch (Exception e) {
-            }
-            synchronized (WalletBeginning.class) {
-                try {
-                    System.out.println("run s" + i);
-                    String info = in.readUTF();
-                    System.out.println(info);
-                    System.out.println("run f" + i++);
-                    if (info.startsWith("info")) {
-                        String[] arr = info.split(":");
-                        if (arr[0].equals("info")) {
-                            mainPanelLogin.setText(arr[1]);
-                            getMainPanelAccount.setText(arr[2]);
-                        }
-                    }
-                } catch (Exception e) {
-                    System.out.println("hello");
-                }
-            }
-        }
-    }
+//    @Override
+//    public void run() {
+//        while (listenServer) {
+//            try {
+//                Thread.currentThread().sleep(100);
+//            } catch (Exception e) {
+//            }
+//            synchronized (WalletBeginning.class) {
+//                try {
+//                    System.out.println("run s" + i);
+//                    String info = in.readUTF();
+//                    System.out.println(info);
+//                    System.out.println("run f" + i++);
+//                    if (info.startsWith("info")) {
+//                        String[] arr = info.split(":");
+//                        if (arr[0].equals("info")) {
+//                            mainPanelLogin.setText(arr[1]);
+//                            getMainPanelAccount.setText(arr[2]);
+//                        }
+//                    }
+//                } catch (Exception e) {
+//                    System.out.println("hello");
+//                }
+//            }
+//        }
+//    }
 
     public WalletBeginning(Socket socket) throws HeadlessException {
         super("Wallet");
@@ -149,6 +149,8 @@ public class WalletBeginning extends JFrame implements Runnable {
             sum.setText("");
             try {
                 out.writeUTF("send:" + to + ":" + s);
+                String resp = in.readUTF();
+                System.out.println(resp);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -186,27 +188,27 @@ public class WalletBeginning extends JFrame implements Runnable {
             String log = loginIn.getText();
             String pas = passwordIn.getText();
             try {
-                synchronized (WalletBeginning.class) {
-                    out.writeUTF("auth:" + log + ":" + pas);
+
+                out.writeUTF("auth:" + log + ":" + pas);
+                Thread.sleep(10);
+                String resp = in.readUTF();
+                if (resp.startsWith("suc")) {
+                    out.writeUTF("info");
                     Thread.sleep(10);
-                    String resp = in.readUTF();
-                    if (resp.startsWith("suc")) {
-                        out.writeUTF("info");
-                        Thread.sleep(10);
-                        String[] r = in.readUTF().split(":");
-                        mainPanelLogin.setText(r[1]);
-                        getMainPanelAccount.setText(r[2]);
-                        add(jPanelMain);
-                        remove(jPanelSignIn);
-                        repaint();
-                        setVisible(true);
-                        Thread thread = new Thread(WalletBeginning.this);
-                        thread.start();
-                    } else {
-                        loginIn.setText("");
-                        passwordIn.setText("");
-                    }
+                    String[] r = in.readUTF().split(":");
+                    mainPanelLogin.setText(r[1]);
+                    getMainPanelAccount.setText(r[2]);
+                    add(jPanelMain);
+                    remove(jPanelSignIn);
+                    repaint();
+                    setVisible(true);
+//                        Thread thread = new Thread(WalletBeginning.this);
+//                        thread.start();
+                } else {
+                    loginIn.setText("");
+                    passwordIn.setText("");
                 }
+
             } catch (Exception e1) {
 
             }
