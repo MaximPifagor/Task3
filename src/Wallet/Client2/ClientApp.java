@@ -1,5 +1,7 @@
 package Wallet.Client2;
 
+import Wallet.Client.WalletBeginning;
+
 import java.net.InetAddress;
 import java.net.Socket;
 
@@ -14,7 +16,6 @@ public class ClientApp {
         if (controller == null) {
             return;
         }
-
-
+        WalletBeginning beginning = new WalletBeginning(controller);
     }
 }

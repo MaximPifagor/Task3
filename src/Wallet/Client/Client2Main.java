@@ -11,7 +11,7 @@ public class Client2Main {
     public static void main(String[] args) {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            Socket socket = new Socket(InetAddress.getLocalHost(), 8080);
+            Socket socket = new Socket(InetAddress.getByAddress(new byte[]{(byte) 192, (byte) 168, 0, 15}), 8080);
             DataOutputStream out = new DataOutputStream(socket.getOutputStream());
             DataInputStream in = new DataInputStream(socket.getInputStream());
             new Thread(new Listen(in)).start();

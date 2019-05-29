@@ -1,70 +1,73 @@
 package Wallet.Client;
 
-import Wallet.WalletService.WalletServer;
+import Wallet.Client2.SocketController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.net.Socket;
 
-public class WalletBeginning extends JFrame {
+public class WalletBeginning extends JFrame implements Runnable {
+    StatesClient state;
     JPanel jPanel;
     JPanel jPanelSignUp;
     JPanel jPanelSignIn;
-    JPanel jPanelMain;
-    Socket socket;
+    JPanel jPanelUsing;
     JTextField loginUp;
     JTextField passwordUp;
     JTextField loginIn;
     JTextField passwordIn;
-    DataInputStream in;
-    DataOutputStream out;
     JLabel mainPanelLogin;
-    JLabel getMainPanelAccount;
+    JLabel mainPanelAccount;
     JTextField sentTo;
     JTextField sum;
-    Boolean listenServer = true;
+    SocketController controller;
     static int i = 0;
 
-//    @Override
-//    public void run() {
-//        while (listenServer) {
-//            try {
-//                Thread.currentThread().sleep(100);
-//            } catch (Exception e) {
-//            }
-//            synchronized (WalletBeginning.class) {
-//                try {
-//                    System.out.println("run s" + i);
-//                    String info = in.readUTF();
-//                    System.out.println(info);
-//                    System.out.println("run f" + i++);
-//                    if (info.startsWith("info")) {
-//                        String[] arr = info.split(":");
-//                        if (arr[0].equals("info")) {
-//                            mainPanelLogin.setText(arr[1]);
-//                            getMainPanelAccount.setText(arr[2]);
-//                        }
-//                    }
-//                } catch (Exception e) {
-//                    System.out.println("hello");
-//                }
-//            }
-//        }
-//    }
-
-    public WalletBeginning(Socket socket) throws HeadlessException {
-        super("Wallet");
-        this.socket = socket;
-        try {
-            in = new DataInputStream(socket.getInputStream());
-            out = new DataOutputStream(socket.getOutputStream());
-        } catch (Exception e) {
-            System.out.println("exceptionWalletBegining");
+    @Override
+    public void run() {
+        while (true) {
+            String s = controller.getRespond();
+            System.out.println(s);
+            if (s != null) {
+                System.out.println(s);
+                execute(s);
+            }
         }
+    }
+
+
+    public void execute(String str) {
+        System.out.println(str);
+        if (state == StatesClient.Start && str.startsWith("suc:reg")) {
+            System.out.println();
+        }
+        if (state == StatesClient.SingIn && str.startsWith("suc:auth")) {
+            state = StatesClient.Using;
+            jPanelSignIn.setVisible(false);
+            remove(jPanelSignIn);
+            jPanelUsing.setVisible(true);
+            add(jPanelUsing);
+            controller.post("info");
+        }
+        if (state == StatesClient.Using && str.startsWith("info")) {
+            mainPanelLogin.setText(str.split(":")[1]);
+            mainPanelAccount.setText(str.split(":")[2]);
+        }
+        if (state == StatesClient.Using && str.startsWith("update")) {
+            mainPanelAccount.setText(str.split(":")[1]);
+        }
+        if (state == StatesClient.SignUp && str.startsWith("suc:reg")) {
+
+        }
+    }
+
+
+    public WalletBeginning(SocketController controller) throws HeadlessException {
+        super("Wallet");
+        this.controller = controller;
+        new Thread(this).start();
+        state = StatesClient.Start;
         jPanel = new JPanel();
         JButton enter = new JButton("Войти");
         enter.addActionListener(new Enter());
@@ -114,17 +117,20 @@ public class WalletBeginning extends JFrame {
     }
 
     void createMainPanel() {
-        jPanelMain = new JPanel(new GridLayout(1, 2));
-        JPanel subPanel = new JPanel(new GridLayout(4, 1));
+        jPanelUsing = new JPanel(new GridLayout(1, 2));
+        JPanel subPanel = new JPanel(new GridLayout(5, 1));
         JLabel label1 = new JLabel("Логин");
         JLabel label2 = new JLabel("Счет");
         mainPanelLogin = new JLabel("");
-        getMainPanelAccount = new JLabel("");
+        mainPanelAccount = new JLabel("");
         subPanel.add(label1);
         subPanel.add(mainPanelLogin);
         subPanel.add(label2);
-        subPanel.add(getMainPanelAccount);
-        jPanelMain.add(subPanel);
+        subPanel.add(mainPanelAccount);
+        JButton b = new JButton("ВЫЙТИ");
+        b.addActionListener(new Quit());
+        subPanel.add(b);
+        jPanelUsing.add(subPanel);
         JPanel panelSendTo = new JPanel(new GridLayout(4, 1));
         JLabel labelSend = new JLabel("Перевести");
         sentTo = new JTextField();
@@ -135,8 +141,8 @@ public class WalletBeginning extends JFrame {
         panelSendTo.add(sentTo);
         panelSendTo.add(sum);
         panelSendTo.add(send);
-        jPanelMain.add(panelSendTo);
-        jPanelMain.setVisible(true);
+        jPanelUsing.add(panelSendTo);
+        jPanelUsing.setVisible(true);
     }
 
     class Send implements ActionListener {
@@ -148,14 +154,10 @@ public class WalletBeginning extends JFrame {
             String s = sum.getText();
             sum.setText("");
             try {
-                out.writeUTF("send:" + to + ":" + s);
-                String resp = in.readUTF();
-                System.out.println(resp);
+                controller.post("send:" + to + ":" + s);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-
-
         }
     }
 
@@ -166,6 +168,7 @@ public class WalletBeginning extends JFrame {
             jPanel.setVisible(false);
             remove(jPanel);
             add(jPanelSignIn);
+            state = StatesClient.SingIn;
 
         }
     }
@@ -178,6 +181,7 @@ public class WalletBeginning extends JFrame {
             remove(jPanel);
             repaint();
             setVisible(true);
+            state = StatesClient.SignUp;
         }
     }
 
@@ -188,27 +192,7 @@ public class WalletBeginning extends JFrame {
             String log = loginIn.getText();
             String pas = passwordIn.getText();
             try {
-
-                out.writeUTF("auth:" + log + ":" + pas);
-                Thread.sleep(10);
-                String resp = in.readUTF();
-                if (resp.startsWith("suc")) {
-                    out.writeUTF("info");
-                    Thread.sleep(10);
-                    String[] r = in.readUTF().split(":");
-                    mainPanelLogin.setText(r[1]);
-                    getMainPanelAccount.setText(r[2]);
-                    add(jPanelMain);
-                    remove(jPanelSignIn);
-                    repaint();
-                    setVisible(true);
-//                        Thread thread = new Thread(WalletBeginning.this);
-//                        thread.start();
-                } else {
-                    loginIn.setText("");
-                    passwordIn.setText("");
-                }
-
+                controller.post("auth:" + log + ":" + pas);
             } catch (Exception e1) {
 
             }
@@ -224,27 +208,25 @@ public class WalletBeginning extends JFrame {
             try {
                 String s = "reg:" + log + ":" + pas;
                 String resp = "";
-                synchronized (WalletBeginning.class) {
-                    out.writeUTF(s);
-                    Thread.sleep(10);
-                    resp = in.readUTF();
-                }
-                System.out.println(resp);
-                if (resp.startsWith("suc")) {
-                    loginUp.setText("");
-                    passwordUp.setText("");
-                    add(jPanel);
-                    remove(jPanelSignUp);
-                    repaint();
-                    setVisible(true);
-                } else {
-                    loginUp.setText("");
-                    passwordUp.setText("");
-                }
+                controller.post(s);
+                loginUp.setText("");
+                passwordUp.setText("");
             } catch (Exception ex) {
                 System.out.println("exception");
             }
+        }
+    }
 
+    class Quit implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (state == StatesClient.Using)
+                controller.post("quit");
+            jPanelSignUp.setVisible(false);
+            remove(jPanelSignUp);
+            jPanel.setVisible(true);
+            add(jPanel);
+            state = StatesClient.Start;
         }
     }
 

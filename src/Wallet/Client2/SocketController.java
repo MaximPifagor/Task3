@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class SocketController implements ISocketController {
@@ -13,9 +14,10 @@ public class SocketController implements ISocketController {
     Deque<String> responds;
 
     public SocketController(Socket socket) throws IOException {
-        socket = new Socket();
+        this.socket = new Socket();
         out = new DataOutputStream(socket.getOutputStream());
         in = new DataInputStream(socket.getInputStream());
+        responds = new ArrayDeque<>();
         new Thread(this::run).start();
     }
 
@@ -23,14 +25,15 @@ public class SocketController implements ISocketController {
     public void post(String request) {
         try {
             out.writeUTF(request);
+            out.flush();
         } catch (Exception e) {
             System.out.print("can't to send request");
             System.err.println(e);
         }
     }
 
-    public String getRespond(){
-        if(!responds.isEmpty()){
+    public String getRespond() {
+        if (!responds.isEmpty()) {
             return responds.pop();
         }
         return null;
@@ -42,7 +45,9 @@ public class SocketController implements ISocketController {
         while (true) {
             try {
                 String resp = in.readUTF();
-                responds.add(resp);
+                if (resp != null) {
+                    responds.add(resp);
+                }
             } catch (Exception e) {
                 System.out.print("Error SniffingAble" + "Exception: ");
                 System.err.println(e);

@@ -27,6 +27,7 @@ public class WalletServer extends ServerBase {
 
     @Override
     public String doCommands(String command) {
+        System.out.println(command);
         String result = subDoCommand(command);
         return result;
     }
