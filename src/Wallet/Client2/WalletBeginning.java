@@ -1,5 +1,6 @@
-package Wallet.Client;
+package Wallet.Client2;
 
+import Wallet.Client.StatesClient;
 import Wallet.Client2.SocketController;
 
 import javax.swing.*;
@@ -8,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class WalletBeginning extends JFrame implements Runnable {
-    StatesClient state;
+    volatile StatesClient state;
     JPanel jPanel;
     JPanel jPanelSignUp;
     JPanel jPanelSignIn;
@@ -28,9 +29,7 @@ public class WalletBeginning extends JFrame implements Runnable {
     public void run() {
         while (true) {
             String s = controller.getRespond();
-            System.out.println(s);
             if (s != null) {
-                System.out.println(s);
                 execute(s);
             }
         }
@@ -38,9 +37,9 @@ public class WalletBeginning extends JFrame implements Runnable {
 
 
     public void execute(String str) {
-        System.out.println(str);
-        if (state == StatesClient.Start && str.startsWith("suc:reg")) {
+        if (state == StatesClient.SignUp && str.startsWith("suc:reg")) {
             System.out.println();
+            return;
         }
         if (state == StatesClient.SingIn && str.startsWith("suc:auth")) {
             state = StatesClient.Using;
@@ -48,17 +47,23 @@ public class WalletBeginning extends JFrame implements Runnable {
             remove(jPanelSignIn);
             jPanelUsing.setVisible(true);
             add(jPanelUsing);
+            repaint();
+            setVisible(true);
             controller.post("info");
+            return;
         }
-        if (state == StatesClient.Using && str.startsWith("info")) {
-            mainPanelLogin.setText(str.split(":")[1]);
-            mainPanelAccount.setText(str.split(":")[2]);
+        if (state == StatesClient.Using && str.startsWith("suc:info")) {
+            mainPanelLogin.setText(str.split(":")[2]);
+            mainPanelAccount.setText(str.split(":")[3]);
+            repaint();
+            return;
         }
         if (state == StatesClient.Using && str.startsWith("update")) {
             mainPanelAccount.setText(str.split(":")[1]);
+            return;
         }
         if (state == StatesClient.SignUp && str.startsWith("suc:reg")) {
-
+            return;
         }
     }
 
@@ -97,6 +102,9 @@ public class WalletBeginning extends JFrame implements Runnable {
         jPanelSignUp.add(labelPassword);
         jPanelSignUp.add(passwordUp);
         jPanelSignUp.add(signup);
+        JButton b = new JButton("назад");
+        b.addActionListener(new Quit());
+        jPanelSignUp.add(b);
         jPanelSignUp.setVisible(true);
     }
 

@@ -1,7 +1,5 @@
 package Wallet.Client2;
 
-import Wallet.Client.WalletBeginning;
-
 import java.net.InetAddress;
 import java.net.Socket;
 

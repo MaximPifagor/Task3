@@ -11,7 +11,7 @@ public class SocketController implements ISocketController {
     Socket socket;
     DataOutputStream out;
     DataInputStream in;
-    Deque<String> responds;
+    volatile Deque<String> responds;
 
     public SocketController(Socket socket) throws IOException {
         this.socket = new Socket();
@@ -34,7 +34,8 @@ public class SocketController implements ISocketController {
 
     public String getRespond() {
         if (!responds.isEmpty()) {
-            return responds.pop();
+            String s = responds.pop();
+            return s;
         }
         return null;
     }
@@ -46,7 +47,8 @@ public class SocketController implements ISocketController {
             try {
                 String resp = in.readUTF();
                 if (resp != null) {
-                    responds.add(resp);
+                    responds.push(resp);
+                    System.out.println(resp);
                 }
             } catch (Exception e) {
                 System.out.print("Error SniffingAble" + "Exception: ");
