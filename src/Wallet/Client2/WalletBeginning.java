@@ -1,8 +1,5 @@
 package Wallet.Client2;
 
-import Wallet.Client.StatesClient;
-import Wallet.Client2.SocketController;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
