@@ -9,32 +9,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import SqlLite.DataPersons;
 import org.sqlite.JDBC;
 import sun.awt.geom.AreaOp;
 
 public class DataBase extends HashMap<String, Person> {
     public HashMap<String, Person> data;
-    BufferedWriter writer;
+    DataPersons persons;
 
     public DataBase() {
         data = new HashMap<>();
-        try (
-                BufferedReader reader = new BufferedReader(new FileReader("src\\Wallet\\WalletService\\Data.txt"));
-        ) {
-            String s = "";
-            while ((s = reader.readLine()) != "") {
-                String[] arr = s.split(":");
-                Person p = new Person(arr[0], arr[1], Integer.parseInt(arr[2]));
-                data.put(p.login, p);
-            }
-        } catch (Exception e) {
-
-        }
         try {
-            writer = new BufferedWriter(new FileWriter("src\\Wallet\\WalletService\\Data.txt"));
+            persons = new DataPersons("src\\Wallet\\WalletService\\users.db");
+            data = persons.getTable();
         } catch (Exception e) {
-
+            System.err.println(e);
+            e.printStackTrace();
         }
+
     }
 
     @Override
@@ -42,12 +34,19 @@ public class DataBase extends HashMap<String, Person> {
         return data.get(key);
     }
 
+    public void updateAccount(Person person) {
+        try {
+            persons.update(person);
+        } catch (Exception e) {
+            System.err.println("unupdateable person ");
+        }
+    }
+
     @Override
     public Person put(String key, Person value) {
         try {
-            String s = value.login + ":" + value.password + ":" + value.account;
-            writer.write(s);
-        }catch (Exception e){
+            persons.Insert(value);
+        } catch (Exception e) {
 
         }
         return data.put(key, value);

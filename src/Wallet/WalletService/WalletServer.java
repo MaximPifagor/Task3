@@ -6,18 +6,21 @@ import webSocket.ServerBase;
 
 import javax.swing.*;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.WriteAbortedException;
+import java.lang.reflect.Array;
 import java.net.Socket;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.time.Period;
+import java.util.*;
 
 public class WalletServer extends ServerBase {
-    States currentState;
     static volatile DataBase persons;
-    static volatile HashMap<String, Socket> activePersons = new HashMap<>();
+    static volatile HashMap<String, WalletServer> activePersons = new HashMap<>();
     Person currentPerson;
+    States currentState;
 
-    public WalletServer(String n, Socket client) {
+    public WalletServer(String n, Socket client) throws IOException {
         super(n, client);
         currentState = States.Start;
     }
@@ -43,7 +46,7 @@ public class WalletServer extends ServerBase {
             return sendVV(command);
         }
         if (currentState == States.Using && command.equals("info")) {
-            return "info:" + currentPerson.login + ":" + currentPerson.account;
+            return "suc:info:" + currentPerson.login + ":" + currentPerson.account;
         }
         return "unsuc:" + command;
     }
@@ -60,11 +63,11 @@ public class WalletServer extends ServerBase {
     boolean Enter(String login, String password) {
         if (persons.containsKey(login)) {
             if (persons.get(login).password.equals(password)) {
+                currentPerson = persons.get(login);
                 synchronized (activePersons) {
-                    currentPerson = persons.get(login);
-                    WalletServer.activePersons.put(currentPerson.login, client);
-                    return true;
+                    activePersons.put(currentPerson.login, this);
                 }
+                return true;
             }
         }
         return false;
@@ -73,8 +76,10 @@ public class WalletServer extends ServerBase {
     //send:<recipient>:<count>
     private String sendVV(String command) {
         String[] str = command.split(":");
+        if (str.length != 3)
+            return "unsuc:" + command;
         if (!isExistLogin(str[1]))
-            return "unsuc:send";
+            return "unsuc:" + command;
         Person rcpt = persons.get(str[1]);
         Person source = currentPerson;
         Person person1;
@@ -86,71 +91,98 @@ public class WalletServer extends ServerBase {
             person1 = source;
             person2 = rcpt;
         }
-        if (source.account >= Integer.parseInt(str[2])) {
+        int count = -1;
+        try {
+            count = Integer.parseInt(str[2]);
+        } catch (Exception e) {
+            System.out.println("SendBlock sum is not number");
+        }
+        if (source.account >= count && count > 0) {
             synchronized (person1) {
                 synchronized (person2) {
-                    int count = Integer.parseInt(str[2]);
-                    if (count <= currentPerson.account && count >= 0) {
+                    if (count <= currentPerson.account && count > 0) {
                         currentPerson.account = currentPerson.account - count;
                         Person p = persons.get(rcpt.login);
                         p.account = p.account + count;
-                        return "suc:send";
+                        persons.updateAccount(person1);
+                        persons.updateAccount(person2);
+                        update(rcpt.login);
+                        update(source.login);
+                        return "suc:" + command;
                     }
                 }
             }
         }
-        return "unsuc:send";
+        return "unsuc:" + command;
     }
 
-    private void updataUsersInfo(Person person) {
-        String login = person.login;
-        synchronized (activePersons) {
-            if (activePersons.containsKey(login)) {
-                Socket socket = activePersons.get(login);
-                try (DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream())) {
-                    outputStream.writeUTF("info:" + login + ":" + person.account);
-                } catch (Exception e) {
-                }
-            }
-        }
-    }
 
     //reg:<primary login>:<password>
     public String registration(String command) {
         String[] str = command.split(":");
-        if (str == null || str.length != 3)
-            return "unsuc:reg";
+        if (str == null)
+            return "unsuc:null";
+        if (str.length != 3)
+            return "unsuc:" + command;
         if (!isExistLogin(str[1])) {
             synchronized (persons) {
                 if (!isExistLogin(str[1])) {
                     createNewPerson(str[1], str[2]);
                     currentState = States.Start;
-                    return "suc:reg";
+                    return "suc:" + command;
                 }
-                return "unsec:reg";
+                return "unsec:" + command;
             }
         }
-        return "unsec:reg";
+        return "unsec:" + command;
     }
 
     //auth:<login>:<password>
     public String authorization(String command) {
         String[] str = command.split(":");
+        if (str == null)
+            return "unsuc:null";
+        if (str.length != 3)
+            return "unsuc:" + command;
         if (Enter(str[1], str[2])) {
             currentState = States.Using;
-            return "suc:auth";
+            return "suc:" + command;
         }
-        return "unsuc:auth";
+        return "unsuc:" + command;
     }
 
     //quit
     public String quit(String command) {
+        currentState = States.Start;
+        for (Map.Entry<String, WalletServer> a : activePersons.entrySet()) {
+            System.out.println(a.getKey() + a.getValue().currentPerson);
+        }
+        System.out.println();
         synchronized (activePersons) {
-            currentState = States.Start;
             activePersons.remove(currentPerson.login);
             currentPerson = null;
-            return "suc:quit";
+        }
+        return "suc:quit";
+    }
+
+    public void update(String login) {
+        synchronized (activePersons) {
+            WalletServer s = activePersons.get(login);
+            if (s != null)
+                new Thread(new Send(s)).start();
         }
     }
 
+    class Send implements Runnable {
+        WalletServer server;
+
+        public Send(WalletServer walletServer) {
+            server = walletServer;
+        }
+
+        @Override
+        public void run() {
+            server.SendCommand("update:" + server.currentPerson.account);
+        }
+    }
 }

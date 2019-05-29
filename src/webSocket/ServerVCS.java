@@ -2,12 +2,13 @@ package webSocket;
 
 import FileWorkerPackage.FileWorker;
 
+import java.io.IOException;
 import java.net.Socket;
 import java.util.Map;
 
 public class ServerVCS extends ServerBase {
     FileWorker worker;
-    public ServerVCS(String n, Socket client, FileWorker worker) {
+    public ServerVCS(String n, Socket client, FileWorker worker) throws IOException {
         super(n, client);
         this.worker = worker;
     }
