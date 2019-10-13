@@ -1,0 +1,953 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Server:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ac655983-21d6-4195-87ec-349e8ce939a6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/DispatcherTest/ThreadMonitorTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_27_2_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_27_2_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SqlLite/UsersмаксDesktopООП" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SqlLite/data.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SqlLite/persones" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SqlLite/sqlite-jdbc-3.27.2.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SqlLite/sqlite3.def" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SqlLite/sqlite3.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SqlLite/sqlite3.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SqlLite/Новый текстовый документ.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Task3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/f.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sqlTest.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sqlite3.def" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sqlite3.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sqlite3.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dispatcher/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dispatcher/MonitorFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/MonitorFile.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dispatcher/SleepWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DispatcherTest/SleepWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dispatcher/Task3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tz/Task3.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dispatcher/ThreadDispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dispatcher/ThreadDispatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dispatcher/ThreadMonitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dispatcher/ThreadMonitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dispatcher/Threaded.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dispatcher/TTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileWorkerPackage/FileWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileWorker/FileWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileWorkerPackage/IExecutable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileWorker/IExecutable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileWorkerPackage/MainFW.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileWorkerPackage/Md5ExecutorDir.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileWorkerPackage/Md5ExecutorFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileWorkerPackage/output.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Reflection/MainReflection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reflection/MainReflection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Reflection/Packet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reflection/Packet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Reflection/Task5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tz/Task5.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SqlLite/DataPersons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SqlLite/DataPersons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Wallet/Client2/WalletBeginning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Wallet/Client2/WalletBeginning.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Wallet/WalletService/DataBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Wallet/WalletService/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Wallet/WalletService/WalletMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Wallet/WalletService/WalletMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Wallet/WalletService/WalletServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Wallet/WalletService/WalletServerTT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Wallet/WalletService/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/users.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webSocket/IServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/webSocket/IServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webSocket/MainServerVCS.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webSocket/OldVersionServer/MyServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webSocket/OldVersionServer/ServerLog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webSocket/ServerBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/webSocket/ClientInterfaceTT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webSocket/ServerVCS.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webSocket/Task4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tz/Task4.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webSocketClient/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webSocketClient/ClientLog" beforeDir="false" afterPath="$PROJECT_DIR$/tz/ClientLog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webSocketClient/IClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/webSocketClient/RequestForServerHash.java" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/WebWallet$ThreadMonitorTests.ic" NAME="ThreadMonitorTests Coverage Results" MODIFIED="1568568625342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Dispatcher.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="ErrorTreeViewConfiguration">
+    <option name="hideWarnings" value="true" />
+    <option name="HIDE_WARNINGS" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Wallet/WalletService/WalletMain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Wallet/WalletService/WalletServerTT.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="748">
+              <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1648#1649#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/SqlLite/DataPersons.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="29" column="107" lean-forward="true" selection-start-line="29" selection-start-column="107" selection-end-line="29" selection-end-column="107" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/external/db/sqlite/sqlite-jdbc-3.27.2.1.jar!/org/sqlite/jdbc3/JDBC3ResultSet.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="278" selection-start-line="278" selection-end-line="278" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/external/db/sqlite/sqlite-jdbc-3.27.2.1.jar!/org/sqlite/core/CoreResultSet.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="44" selection-start-line="44" selection-end-line="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/sql/ResultSet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="313" column="9" selection-start-line="313" selection-start-column="9" selection-end-line="313" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/text/MessageFormat.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="838" column="25" selection-start-line="838" selection-start-column="25" selection-end-line="838" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/String.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="173">
+              <caret line="2939" column="35" selection-start-line="2939" selection-start-column="35" selection-end-line="2939" selection-end-column="35" />
+              <folding>
+                <element signature="e#94598#94599#0" expanded="true" />
+                <element signature="e#94636#94637#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/Formatter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-21">
+              <caret line="2492" column="21" selection-start-line="2492" selection-start-column="21" selection-end-line="2492" selection-end-column="21" />
+              <folding>
+                <element signature="e#101735#101736#0" expanded="true" />
+                <element signature="e#101781#101782#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Wallet/WalletService/States.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>addAll</find>
+      <find>close</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/Dispatcher/Task3.txt" />
+        <option value="$PROJECT_DIR$/src/Dispatcher/Threaded.java" />
+        <option value="$PROJECT_DIR$/src/Dispatcher/TTask.java" />
+        <option value="$PROJECT_DIR$/src/Dispatcher/ThreadDispatcher.java" />
+        <option value="$PROJECT_DIR$/src/Dispatcher/Main.java" />
+        <option value="$PROJECT_DIR$/src/Reflection/MainReflection.java" />
+        <option value="$PROJECT_DIR$/src/FileWorkerPackage/MainFW.java" />
+        <option value="$PROJECT_DIR$/src/FileWorkerPackage/FileWorkerTests.java" />
+        <option value="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_27_2_1.xml" />
+        <option value="$PROJECT_DIR$/src/Dispatcher/SleepWorker.java" />
+        <option value="$PROJECT_DIR$/src/Dispatcher/ThreadMonitorTests.java" />
+        <option value="$PROJECT_DIR$/src/Dispatcher/ThreadMonitor.java" />
+        <option value="$PROJECT_DIR$/src/FileWorker/FileWorker.java" />
+        <option value="$PROJECT_DIR$/src/FileWorkerTest/FileWorkerTests.java" />
+        <option value="$PROJECT_DIR$/src/FileWorkerTest/Md5ExecutorDir.java" />
+        <option value="$PROJECT_DIR$/src/FileWorker/IExecutable.java" />
+        <option value="$PROJECT_DIR$/src/FileWorkerTest/Md5ExecutorFile.java" />
+        <option value="$PROJECT_DIR$/src/webSocket/MainServerVCS.java" />
+        <option value="$PROJECT_DIR$/src/webSocket/ServerVCS.java" />
+        <option value="$PROJECT_DIR$/src/webSocket/ServerBase.java" />
+        <option value="$PROJECT_DIR$/src/webSocket/ServerBaseTT.java" />
+        <option value="$PROJECT_DIR$/src/webSocketClient/Client.java" />
+        <option value="$PROJECT_DIR$/src/webSocket/ClientInterfaceTT.java" />
+        <option value="$PROJECT_DIR$/src/webSocket/IServer.java" />
+        <option value="$PROJECT_DIR$/src/Wallet/WalletService/Person.java" />
+        <option value="$PROJECT_DIR$/src/Wallet/WalletService/DataBase.java" />
+        <option value="$PROJECT_DIR$/src/Wallet/WalletService/WalletMain.java" />
+        <option value="$PROJECT_DIR$/src/Wallet/WalletService/WalletServerTT.java" />
+        <option value="$PROJECT_DIR$/src/SqlLite/DataPersons.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="30" />
+    <option name="y" value="26" />
+    <option name="width" value="822" />
+    <option name="height" value="789" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="WebWallet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebWallet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebWallet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebWallet" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebWallet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebWallet" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Dispatcher" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebWallet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebWallet" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebWallet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebWallet" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="SqlLite" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebWallet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebWallet" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Wallet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebWallet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebWallet" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Wallet" type="462c0819:PsiDirectoryNode" />
+              <item name="WalletService" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WebWallet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WebWallet" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="webSocket" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1569704555401" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/external/db/sqlite/sqlite-jdbc-3.27.2.1.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\макс\Desktop\Новая папка (2)\WebWallet\db" />
+      <recent name="C:\Users\макс\Desktop\Новая папка (2)\WebWallet\tz" />
+      <recent name="C:\Users\макс\Desktop\Новая папка (2)\WebWallet\logs" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.DataPersons">
+    <configuration name="DataPersons" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SqlLite.DataPersons" />
+      <module name="Task3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="SqlLite.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ThreadMonitorTests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DispatcherTest.ThreadMonitorTests" />
+      <module name="Task3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="DispatcherTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ThreadMonitorTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Task3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="DispatcherTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="DispatcherTest" />
+      <option name="MAIN_CLASS_NAME" value="DispatcherTest.ThreadMonitorTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ThreadMonitorTests.monitorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Task3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="DispatcherTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="DispatcherTest" />
+      <option name="MAIN_CLASS_NAME" value="DispatcherTest.ThreadMonitorTests" />
+      <option name="METHOD_NAME" value="monitorTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.DataPersons" />
+        <item itemvalue="JUnit.ThreadMonitorTests.monitorTest" />
+        <item itemvalue="Application.ThreadMonitorTests" />
+        <item itemvalue="JUnit.ThreadMonitorTests" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ac655983-21d6-4195-87ec-349e8ce939a6" name="Default Changelist" comment="" />
+      <created>1568565368673</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1568565368673</updated>
+      <workItem from="1568565389692" duration="279000" />
+      <workItem from="1568574364713" duration="72000" />
+      <workItem from="1569687521055" duration="3000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="ThreadMonitorTests - 2019.09.15 at 22h 34m 17s.xml">
+      <configuration name="ThreadMonitorTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ThreadMonitorTests - 2019.09.15 at 22h 34m 25s.xml">
+      <configuration name="ThreadMonitorTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ThreadMonitorTests - 2019.09.15 at 22h 34m 43s.xml">
+      <configuration name="ThreadMonitorTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ThreadMonitorTests - 2019.09.15 at 22h 35m 04s.xml">
+      <configuration name="ThreadMonitorTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ThreadMonitorTests - 2019.09.15 at 22h 35m 32s.xml">
+      <configuration name="ThreadMonitorTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ThreadMonitorTests_monitorTest - 2019.09.15 at 23h 27m 23s.xml">
+      <configuration name="ThreadMonitorTests.monitorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ThreadMonitorTests_monitorTest - 2019.09.15 at 23h 29m 18s.xml">
+      <configuration name="ThreadMonitorTests.monitorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ThreadMonitorTests_monitorTest - 2019.09.15 at 23h 30m 15s.xml">
+      <configuration name="ThreadMonitorTests.monitorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ThreadMonitorTests_monitorTest - 2019.09.28 at 21h 26m 59s.xml">
+      <configuration name="ThreadMonitorTests.monitorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ThreadMonitorTests_monitorTest - 2019.09.28 at 21h 39m 26s.xml">
+      <configuration name="ThreadMonitorTests.monitorTest" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="354000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26285347" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32974428" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32974428" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.38088828" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32974428" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/SqlLite/Новый текстовый документ.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="21" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/jre/lib/rt.jar!/com/sun/istack/internal/NotNull.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/jre/lib/rt.jar!/sun/rmi/runtime/Log.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2435">
+          <caret line="170" column="25" selection-start-line="170" selection-start-column="25" selection-end-line="170" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/logging/Logger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-616">
+          <caret line="376" column="81" selection-start-line="376" selection-start-column="81" selection-end-line="376" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SqlLite/data.db">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/MonitorFile.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="41" selection-start-column="41" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DispatcherTest/ThreadMonitorTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Dispatcher/TTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FileWorkerTest/Md5ExecutorDir.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="69" column="40" selection-start-line="69" selection-start-column="40" selection-end-line="69" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FileWorkerTest/FileWorkerTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FileWorkerTest/Md5ExecutorFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-141">
+          <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FileWorker/FileWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="607">
+          <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+          <folding>
+            <element signature="e#492#493#0" expanded="true" />
+            <element signature="e#519#520#0" expanded="true" />
+            <element signature="e#796#797#0" expanded="true" />
+            <element signature="e#850#851#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FileWorker/IExecutable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Dispatcher/ThreadDispatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+          <folding>
+            <element signature="e#348#349#0" expanded="true" />
+            <element signature="e#378#379#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Dispatcher/ThreadMonitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-119">
+          <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="e#731#732#0" expanded="true" />
+            <element signature="e#777#778#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DispatcherTest/SleepWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reflection/ClassToPropertiesConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reflection/MainReflection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-255">
+          <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reflection/Packet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reflection/Packet2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Reflection/Serializator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webSocket/MainServerVCS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="15" column="85" selection-start-line="15" selection-start-column="85" selection-end-line="15" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webSocket/ServerVCS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/net/SocketImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="43" column="28" lean-forward="true" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/net/Socket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="940" column="24" selection-start-line="940" selection-start-column="24" selection-end-line="940" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webSocketClient/IClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webSocketClient/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="13" column="94" selection-start-line="13" selection-start-column="94" selection-end-line="13" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webSocketClient/RequestForServerHash.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/users.db">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/regex/Pattern.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102">
+          <caret line="1201" column="20" selection-start-line="1201" selection-start-column="20" selection-end-line="1201" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webSocket/IServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/webSocket/ClientInterfaceTT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Wallet/Client2/StatesClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Wallet/Client2/ISocketController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Wallet/Client2/ClientApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Wallet/Client2/SocketController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Wallet/Client2/WalletBeginning.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3337">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Wallet/WalletService/States.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Wallet/WalletService/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="13" selection-start-line="2" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="2939" column="35" selection-start-line="2939" selection-start-column="35" selection-end-line="2939" selection-end-column="35" />
+          <folding>
+            <element signature="e#94598#94599#0" expanded="true" />
+            <element signature="e#94636#94637#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/Formatter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-21">
+          <caret line="2492" column="21" selection-start-line="2492" selection-start-column="21" selection-end-line="2492" selection-end-column="21" />
+          <folding>
+            <element signature="e#101735#101736#0" expanded="true" />
+            <element signature="e#101781#101782#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/text/MessageFormat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="838" column="25" selection-start-line="838" selection-start-column="25" selection-end-line="838" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Wallet/WalletService/DataBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="19" column="33" lean-forward="true" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Wallet/WalletService/WalletMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Wallet/WalletService/WalletServerTT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="44" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1648#1649#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/sql/ResultSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="313" column="9" selection-start-line="313" selection-start-column="9" selection-end-line="313" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/external/db/sqlite/sqlite-jdbc-3.27.2.1.jar!/org/sqlite/jdbc3/JDBC3ResultSet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="278" selection-start-line="278" selection-end-line="278" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/external/db/sqlite/sqlite-jdbc-3.27.2.1.jar!/org/sqlite/core/CoreResultSet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SqlLite/DataPersons.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="107" lean-forward="true" selection-start-line="29" selection-start-column="107" selection-end-line="29" selection-end-column="107" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>Server:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Task3</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>sqlite-jdbc-3.27.2.1</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

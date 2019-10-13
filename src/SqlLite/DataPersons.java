@@ -1,70 +1,75 @@
 package SqlLite;
 
-import Wallet.WalletService.Person;
-import org.omg.CORBA.PERSIST_STORE;
-
 import java.sql.*;
-import java.util.HashMap;
+import java.text.MessageFormat;
 
 public class DataPersons {
     Connection connection;
     Statement statement;
-    String table;
 
     public static void main(String[] args) throws Exception {
-        DataPersons persons = new DataPersons("users.db");
-        persons.getTable();
+        DataPersons persons = new DataPersons("db\\users.db");
+        persons.insert(new Person("rafff", "f", 1000));
+        persons.updateAccount("rafff", 100);
+        System.out.println(persons.getAccount("rafff"));
     }
 
-    public DataPersons(String filePath) throws SQLException {
-        connection = DriverManager.getConnection("jdbc:sqlite:" + filePath);
-        statement = connection.createStatement();
-        statement.execute("CREATE TABLE if not exists 'users' (login TEXT PRIMARY KEY, password TEXT, account INTEGER);");
+    public DataPersons(String filePath) {
+        try {
+            Class.forName("org.sqlite.JDBC");
+            connection = DriverManager.getConnection("jdbc:sqlite:" + filePath);
+            statement = connection.createStatement();
+            statement.execute("CREATE TABLE if not exists 'users' (login TEXT PRIMARY KEY, password TEXT, account INTEGER);");
+        } catch (Exception e) {
+            System.out.println("");
+        }
     }
 
-    public void Insert(Person person) throws SQLException {
-        String val = "VALUES ('" + person.login + "', '" + person.password + "', " + person.account + ");";
-        System.out.println(val);
-        statement.executeUpdate("INSERT INTO users (login, password, account) " + val);
+    public void insert(Person person) {
+        try {
+            String sql = MessageFormat.format("INSERT INTO users (login, password, account) VALUES (''{0}'', {1}, {2});", person.login, person.password, person.account);
+            System.out.println(sql);
+            statement.executeUpdate(sql);
+        } catch (Exception e) {
+
+        }
     }
 
-    public void update(Person person) throws SQLException {
-        String s = "UPDATE users\n" +
-                "SET account = " + person.account + "\n" +
-                "WHERE login = '" + person.login + "';\n";
+    public void updateAccount(String login, int term) throws SQLException {
+        int account = getAccount(login);
+        System.out.println(account);
+        String s = MessageFormat.format("UPDATE users SET account= ''{0}'' WHERE login = ''{1}'';", term + account, login);
         System.out.println(s);
         statement.executeUpdate(s);
     }
 
-    public HashMap<String, Person> getTable() {
-        HashMap<String, Person> table = new HashMap<>();
+    public boolean contains(String login) {
         try {
-            ResultSet resSet = statement.executeQuery("SELECT * FROM users");
-            while (resSet.next()) {
-                String login = resSet.getString("login");
-                String password = resSet.getString("password");
-                int account = resSet.getInt("account");
-                System.out.println(login + " " + password + " " + account);
-                table.put(login, new Person(login, password, account));
-            }
+            String sql = MessageFormat.format("SELECT login FROM persons where login = '{0}';", login);
+            ResultSet query = statement.executeQuery(sql);
+            return query.next();
         } catch (Exception e) {
-            System.err.println("ошибка при считывнии таблицы");
+            return false;
         }
-        return table;
     }
 
-    public boolean Contains(String login) throws SQLException {
-        String s = "SELECT login FROM persons;";
-        ResultSet query = statement.executeQuery(s);
-        String resp = "";
-        while (query.next()) {
-            resp = query.getString(1);
-        }
-        System.out.println(resp);
-        return resp.equals(login);
+    public int getAccount(String login) throws SQLException {
+        String sql = MessageFormat.format("SELECT account FROM users where login=''{0}'';", login);
+        System.out.println(sql);
+        ResultSet query = statement.executeQuery(sql);
+        query.next();
+        return query.getInt(1);
     }
 
-    public void UpataAccount(Person p, int count) {
+    public static class Person {
+        public Person(String login, String password, int account) {
+            this.login = login;
+            this.password = password;
+            this.account = account;
+        }
 
+        public String login;
+        public String password;
+        public int account;
     }
 }

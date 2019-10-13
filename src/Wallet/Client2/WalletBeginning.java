@@ -55,7 +55,7 @@ public class WalletBeginning extends JFrame implements Runnable {
             repaint();
             return;
         }
-        if (state == StatesClient.Using && str.startsWith("update")) {
+        if (state == StatesClient.Using && str.startsWith("updateAccount")) {
             mainPanelAccount.setText(str.split(":")[1]);
             return;
         }

@@ -1,59 +1,51 @@
 package Dispatcher;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
+import java.util.*;
 
-public class ThreadMonitor extends Threaded implements Observer {
-    private volatile List<String> list = new ArrayList<String>();
-    public final static String file = "MonitorFile.txt";
-    public volatile List<String> openList = new ArrayList<>();
-    private volatile boolean IsInterrupted = false;
+public class ThreadMonitor extends TTask implements Observer {
+    private volatile List<String> activeTTasks = new ArrayList<>();
+    private volatile List<String> openActiveTTasksToRead = new LinkedList<>();
 
     @Override
     public void subRun() {
-        while (true && !IsInterrupted) {
+        while (true) {
+            synchronized (ThreadMonitor.class) {
+                synchronized (openActiveTTasksToRead) {
+                    openActiveTTasksToRead.addAll(activeTTasks);
+                }
+            }
             try {
                 Thread.sleep(10);
             } catch (Exception e) {
             }
-            synchronized (ThreadMonitor.class) {
-                if(IsInterrupted)
-                    return;
-                List<String> threads = new ArrayList<>();
-                for (int i = 0; i < list.size(); i++) {
-                    threads.add(list.get(i));
-                }
-                openList = threads;
-            }
         }
     }
 
-    public void interrupt() {
-        synchronized (ThreadMonitor.class) {
-            IsInterrupted = true;
-        }
+    public ThreadMonitor(String monitorName) {
+        super(monitorName);
     }
 
-
-    public ThreadMonitor(String n) {
-        super(n);
+    public List<String> getActiveTasks(){
+        List<String> activeTasks = new ArrayList<>();
+        synchronized (openActiveTTasksToRead){
+            activeTasks.addAll(openActiveTTasksToRead);
+        }
+        return activeTasks;
     }
 
     @Override
     public void update(Observable o, Object arg) {
-        String s = (String) arg;
-        String nameObj = ((Threaded) o).toString();
-        String name = ((Threaded)o).name;
-        if(name!= null)
-            nameObj += ":" + name;
-        synchronized (ThreadMonitor.class) {
-            if (s.equals(Threaded.THREAD_WAS_OPENED)) {
-                list.add(nameObj);
-            } else if (s.equals(THREAD_WAS_CLOSED)) {
-                list.remove(nameObj);
+        if (!(arg instanceof String))
+            return;
+        String command = (String) arg;
+        String nameObj = o.toString() + ":" + ((TTask) o).taskName;
+        if (command.equals(TTask.THREAD_WAS_OPENED)) {
+            synchronized (ThreadMonitor.class) {
+                activeTTasks.add(nameObj);
+            }
+        } else if (command.equals(THREAD_WAS_CLOSED)) {
+            synchronized (ThreadMonitor.class) {
+                activeTTasks.remove(nameObj);
             }
         }
     }

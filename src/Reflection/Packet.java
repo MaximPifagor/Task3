@@ -1,5 +1,4 @@
 package Reflection;
-import FileWorkerPackage.*;
 
 public class Packet {
     public int number;

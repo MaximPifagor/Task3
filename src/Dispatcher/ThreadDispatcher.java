@@ -1,30 +1,29 @@
 package Dispatcher;
 
 import java.util.Collection;
-import java.util.Iterator;
 
 public class ThreadDispatcher {
     private static volatile ThreadDispatcher threadDispatcher;
     private volatile ThreadMonitor monitor;
 
+    private ThreadDispatcher(ThreadMonitor monitor) {
+        this.monitor = monitor;
+        addTask(monitor);
+    }
+
     public ThreadMonitor getMonitor() {
         return monitor;
     }
 
-    public void add(Threaded task){
+    public void addTask(TTask task){
         task.addObserver(monitor);
         Thread thread = new Thread(task);
         thread.start();
     }
 
-    public void Interrupt(){
-        monitor.interrupt();
-    }
-
-    public void addAll(Collection<? extends Threaded> collection){
-        Iterator<? extends  Threaded> iterator = collection.iterator();
-        while (iterator.hasNext()){
-            add(iterator.next());
+    public void addAll(Collection<? extends TTask> collection){
+        for (TTask task:collection) {
+            addTask(task);
         }
     }
 
@@ -42,8 +41,5 @@ public class ThreadDispatcher {
         return new ThreadDispatcher(monitor1);
     }
 
-    private ThreadDispatcher(ThreadMonitor monitor1) {
-        monitor = monitor1;
-        add(monitor);
-    }
+
 }
